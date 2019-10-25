@@ -60,66 +60,95 @@ class _RpsState extends State<Rps> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 20.0,
-          ),
-          SizedBox(
-            height: 40.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[_userInput(1), _userInput(2), _userInput(3)],
-          ),
-          SizedBox(
-            height: 40.0,
-          ),
-          Container(
-            height: 100.0,
-            width: 120.0,
-            child: Card(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      names[cpuChoice - 1],
-                      style: TextStyle(fontSize: 18.0),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Icon(
-                      icons[cpuChoice - 1],
-                      color: Colors.blue,
-                    )
-                  ],
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Rock Paper Scissors'),
+        ),
+        body: Container(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 20.0,
+              ),
+              SizedBox(
+                height: 40.0,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    "USER ",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(fontSize: 25.0),
+                  ),
                 ),
               ),
-            ),
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          Container(
-            child: draw == "draw".toUpperCase()
-                ? Text(draw.toUpperCase(),
-                    style: TextStyle(
-                      fontSize: 20.0,
-                    ))
-                : Text(
-                    "WINNER: " + oresult,
-                    style: TextStyle(fontSize: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[_userInput(1), _userInput(2), _userInput(3)],
+              ),
+              SizedBox(
+                height: 40.0,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    "CPU ",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(fontSize: 25.0),
                   ),
-          )
-        ],
-      ),
-    );
+                ),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Container(
+                height: 100.0,
+                width: 120.0,
+                child: Card(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          names[cpuChoice - 1],
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Icon(
+                          icons[cpuChoice - 1],
+                          color: Colors.blue,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30.0,
+              ),
+              Container(
+                child: draw == "draw".toUpperCase()
+                    ? Text(draw.toUpperCase(),
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ))
+                    : Text(
+                        "WINNER: " + oresult,
+                        style: TextStyle(fontSize: 25.0),
+                      ),
+              )
+            ],
+          ),
+        ));
   }
 
   _userInput(index) {

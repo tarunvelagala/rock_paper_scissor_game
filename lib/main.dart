@@ -48,15 +48,15 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              'assets/images/password.png',
-              height: 400.0,
+              'assets/images/logo.png',
+              height: 250.0,
             ),
             SizedBox(
-              height: 30.0,
+              height: 60.0,
             ),
             Container(
                 child: Text(
-              "Remember Me",
+              "Cognizant Student\n Club",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 25.0),
             ))
